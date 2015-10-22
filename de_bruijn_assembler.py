@@ -11,18 +11,19 @@ def get_reads_from_fasta(fastaFileName):
                 reads.append(line.strip())
         return reads
 
-def get_kmers(text, k):
-    kmers = []
+kmers = set()
+def add_kmers_to_set(text, k):
+    global kmers
     for i in range( len(text) - k + 1 ):
-        kmers.append(text[i:i+k])
-    return kmers
+        kmers.add(text[i:i+k])
 
 reads = get_reads_from_fasta(sys.argv[1])
 k = int(sys.argv[2])
 
-kmers = []
+
 for r in reads:
-    kmers += get_kmers(r, k)
+    print r;
+    add_kmers_to_set(r, k)
 
 
 ##### below is stanley's code #######
@@ -92,7 +93,6 @@ for key, item in counts.iteritems():
         non_branching.add( key )
 
 start = g.keys()[ 0 ]
-start = 'TG'
 
 while edge_count > 0:
     for i in g.keys():
