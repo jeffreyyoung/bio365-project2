@@ -24,9 +24,6 @@ kmers = []
 for r in reads:
     kmers += get_kmers(r, k)
 
-#get frequency of each kmer
-#remove kmers with low frequency
-#example... if average kmer frequency is 20, remove kmers with frequency less than 4
 
 ##### below is stanley's code #######
 g = dict()
