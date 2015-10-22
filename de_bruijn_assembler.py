@@ -11,20 +11,27 @@ def get_reads_from_fasta(fastaFileName):
                 reads.append(line.strip())
         return reads
 
-kmers = set()
-def add_kmers_to_set(text, k):
-    global kmers
+def get_kmers(text, k):
+    kmers = []
     for i in range( len(text) - k + 1 ):
-        kmers.add(text[i:i+k])
+        kmers.append(text[i:i+k])
+    return kmers;
 
-reads = get_reads_from_fasta(sys.argv[1])
+def get_kmers_from_fasta(k):
+    reads = get_reads_from_fasta(sys.argv[1])
+    kmers = []
+    for r in reads:
+        kmers += get_kmers(r, k)
+    return kmers;
+
 k = int(sys.argv[2])
+all_kmers = get_kmers_from_fasta(k)
+#remove outlier kmers
+kmers = set(all_kmers)
 
 
-for r in reads:
-    print r;
-    add_kmers_to_set(r, k)
 
+#get_kmers_set_from_fasta()
 
 ##### below is stanley's code #######
 g = dict()
