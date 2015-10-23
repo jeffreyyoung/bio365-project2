@@ -27,6 +27,7 @@ def get_kmers_from_fasta(k):
 
 k = int(sys.argv[2])
 all_kmers = get_kmers_from_fasta(k)
+
 #remove outlier kmers
 kmers = set(remove_mis_reads( all_kmers ))
 #kmers = set( all_kmers )
