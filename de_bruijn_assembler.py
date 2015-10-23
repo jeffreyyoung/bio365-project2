@@ -1,4 +1,5 @@
 import sys
+from kmer_frequency import remove_mis_reads
 
 def get_reads_from_fasta(fastaFileName):
     with open(fastaFileName) as fh:
@@ -27,12 +28,8 @@ def get_kmers_from_fasta(k):
 k = int(sys.argv[2])
 all_kmers = get_kmers_from_fasta(k)
 #remove outlier kmers
-kmers = set(all_kmers)
-
-
-
-#get_kmers_set_from_fasta()
-
+kmers = set(remove_mis_reads( all_kmers ))
+#kmers = set( all_kmers )
 ##### below is stanley's code #######
 g = dict()
 counts = dict()
