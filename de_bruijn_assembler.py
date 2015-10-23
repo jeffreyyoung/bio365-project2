@@ -1,5 +1,6 @@
 import sys
 from kmer_frequency import remove_mis_reads
+from stats import printStats
 
 def get_reads_from_fasta(fastaFileName):
     with open(fastaFileName) as fh:
@@ -109,4 +110,7 @@ while edge_count > 0:
     contigs.append( c )
 
 result = [merge_nodes(contig) for contig in contigs]
-print result
+for r in result:
+    print r
+
+printStats(result)
