@@ -1,4 +1,3 @@
-#paul is doing this
 
 thresholdPercent = .1; #this value is a percent of the average frequency
 # to be used as a threshold for determining which kmers are likely misreads

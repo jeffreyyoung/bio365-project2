@@ -2,9 +2,9 @@
 for fasta in real.error.large.fasta
 do
   echo $fasta
-  a=5
+  a=13
 
-  while [ $a -lt 100 ]
+  while [ $a -lt 110 ]
   do
      echo $a
      python de_bruijn_assembler.py data-sets/$fasta $a > data-sets-results/$fasta.$a.output
